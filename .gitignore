@@ -1,0 +1,4 @@
+/target
+inputs/example-inputs.toml
+inputs/day[1-9].txt
+inputs/day[1-9][0-9].txt

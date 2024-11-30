@@ -1,0 +1,20 @@
+# Copy this to new file example-inputs.toml
+
+# This file should be filled out with the example text
+# from the Advent of Code challenges. This will then be
+# used by unit tests. This was not already included per
+# the author's requests to not redistribute any part of
+# the Advent of Code.
+
+# Note that this is optional and only used for `cargo test`
+
+day0 = [
+'''
+Hello, World!
+''',
+]
+day1 = [
+'''
+TO-DO
+''',
+]
