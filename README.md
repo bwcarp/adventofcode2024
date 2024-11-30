@@ -30,7 +30,7 @@ cargo run -- -d 2
 
 ```
 cargo build --release
-sudo cp target/release/adventofcode2024 /usr/local/bin/ # or whever you want it.
+sudo cp target/release/adventofcode2024 /usr/local/bin/ # or wherever you want it.
 adventofcode2024 -d 2 -f ~/inputs
 ```
 

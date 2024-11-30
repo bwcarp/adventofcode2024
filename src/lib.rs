@@ -11,7 +11,8 @@ pub struct Day {
 }
 
 impl Day {
-    pub fn new(input_file: String, day: i8) -> Day {
+    pub fn new(folder: &String, day: i8) -> Day {
+        let input_file = format!("{}/day{}.txt", folder, day);
         let mut input = fs::read_to_string(&input_file)
             .unwrap_or_else(|_| panic!("Could not open file {}", &input_file));
         if input.ends_with("\n") {

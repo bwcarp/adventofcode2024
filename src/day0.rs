@@ -1,8 +1,7 @@
 use super::Day;
 
 pub fn run(folder: &String) -> Day {
-    let filepath = format!("{}/day0.txt", folder);
-    Day::new(filepath, 0)
+    Day::new(folder, 0)
 }
 
 // Tests are dependent on example-inputs.toml.
