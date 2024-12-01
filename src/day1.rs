@@ -16,11 +16,7 @@ fn pt1(sorted_lists: &Vec<Vec<i64>>) -> i64 {
     let mut total: i64 = 0;
 
     for n in 0..left.len() {
-        if left[n] > right[n] {
-            total += left[n] - right[n];
-        } else {
-            total += right[n] - left[n];
-        }
+        total += (left[n] - right[n]).abs();
     }
 
     total
