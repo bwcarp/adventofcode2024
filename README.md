@@ -44,6 +44,6 @@ Note that this is unnecessary to run the application with real input text. This 
 cargo test day0_hello_world
 ```
 
-## day0
+## Surprise bonus commits
 
-Hello, World!
+I'll be going back and improving old solutions as I read more documentation and learn more efficient practices with Rust.

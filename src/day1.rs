@@ -2,57 +2,44 @@ use super::Day;
 
 pub fn run(folder: &String) -> Day {
     let mut day = Day::new(folder, 1);
-    let sorted_lists: Vec<Vec<i64>> = split_and_sort(&day.input);
+    let (left, right) = split_and_sort(&day.input);
 
-    day.pt1 = pt1(&sorted_lists);
-    day.pt2 = pt2(&sorted_lists);
+    day.pt1 = pt1(&left, &right);
+    day.pt2 = pt2(&left, &right);
 
     day
 }
 
-fn pt1(sorted_lists: &Vec<Vec<i64>>) -> i64 {
-    let left = &sorted_lists[0];
-    let right = &sorted_lists[1];
-    let mut total: i64 = 0;
-
-    for n in 0..left.len() {
-        total += (left[n] - right[n]).abs();
-    }
-
-    total
+fn pt1(left: &Vec<i64>, right: &Vec<i64>) -> i64 {
+    left.iter().zip(right.iter())
+        .fold(0, |sum, (&x, &y) | sum + (x - y).abs())
 }
 
-fn pt2(sorted_lists: &Vec<Vec<i64>>) -> i64 {
-    let left = &sorted_lists[0];
-    let right = &sorted_lists[1];
+fn pt2(left: &Vec<i64>, right: &Vec<i64>) -> i64 {
     let mut total: i64 = 0;
 
     for n in left {
-        let count= right.iter().filter(|&i| *i == *n).count();
+        let count = right.iter().filter(|&i| *i == *n).count();
         total += n * count as i64;
     }
 
     total
 }
 
-fn split_and_sort(input: &String) -> Vec<Vec<i64>> {
-    let mut left_list: Vec<i64> = vec![];
-    let mut right_list: Vec<i64> = vec![];
-    let mut sorted_lists: Vec<Vec<i64>> = vec![];
+fn split_and_sort(input: &String) -> (Vec<i64>, Vec<i64>) {
+    let mut left: Vec<i64> = vec![];
+    let mut right: Vec<i64> = vec![];
 
     for line in input.lines() {
         let split_str: Vec<&str> = line.split_whitespace().collect();
-        left_list.push(split_str[0].parse::<i64>().unwrap());
-        right_list.push(split_str[1].parse::<i64>().unwrap());
+        left.push(split_str[0].parse::<i64>().unwrap());
+        right.push(split_str[1].parse::<i64>().unwrap());
     }
 
-    left_list.sort();
-    right_list.sort();
+    left.sort();
+    right.sort();
 
-    sorted_lists.push(left_list);
-    sorted_lists.push(right_list);
-
-    sorted_lists
+    (left, right)
 }
 
 #[cfg(test)]
@@ -70,10 +57,10 @@ mod tests {
             input_string.pop();
         }
 
-        let sorted_lists = split_and_sort(&input_string);
-        let total = pt1(&sorted_lists);
+        let (left, right) = split_and_sort(&input_string);
+        let total = pt1(&left, &right);
         assert_eq!(total, 11);
-        let total = pt2(&sorted_lists);
+        let total = pt2(&left, &right);
         assert_eq!(total, 31);
     }
 }
