@@ -27,4 +27,5 @@ fn main() {
 
     if args.day == "0" { day0::run(&args.folder).values(); }
     if args.day == "1" || args.day == "all" { day1::run(&args.folder).values(); }
+    if args.day == "2" || args.day == "all" { day2::run(&args.folder).values(); }
 }
