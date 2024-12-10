@@ -31,4 +31,5 @@ fn main() {
     if args.day == "3" || args.day == "all" { day3::run(&args.folder).values(); }
     if args.day == "4" || args.day == "all" { day4::run(&args.folder).values(); }
     if args.day == "5" || args.day == "all" { day5::run(&args.folder).values(); }
+    if args.day == "6" || args.day == "all" { day6::run(&args.folder).values(); }
 }
