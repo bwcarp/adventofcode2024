@@ -23,3 +23,21 @@ day2 = [
 first example here
 ''',
 ]
+day3 = [
+'''
+first example here
+''',
+'''
+second example here
+''',
+]
+day4 = [
+'''
+first actual example (second block though)
+''',
+]
+day5 = [
+'''
+first example here
+''',
+]

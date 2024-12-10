@@ -48,18 +48,19 @@ mod tests {
     use super::*;
 
     #[test]
-    fn day1() {
+    fn day1_pt1() {
         let inputs = parse_example_inputs();
-        let mut input_string = inputs["day1"][0].as_str().unwrap().to_string();
-
-        // The method trims trailing new line, so we will with the test file as well.
-        if input_string.ends_with("\n") {
-            input_string.pop();
-        }
-
+        let input_string = inputs["day1"][0].as_str().unwrap().to_string();
         let (left, right) = split_and_sort(&input_string);
         let total = pt1(&left, &right);
         assert_eq!(total, 11);
+    }
+
+    #[test]
+    fn day1_pt2() {
+        let inputs = parse_example_inputs();
+        let input_string = inputs["day1"][0].as_str().unwrap().to_string();
+        let (left, right) = split_and_sort(&input_string);
         let total = pt2(&left, &right);
         assert_eq!(total, 31);
     }
